@@ -1,0 +1,30 @@
+{
+  "addSchool": {
+    "status": 200,
+    "body": {
+      "message": "School added successfully",
+      "id": 1
+    }
+  },
+  "listSchools": {
+    "status": 200,
+    "body": [
+      {
+        "id": 1,
+        "name": "Sunrise Public School",
+        "address": "456 Hilltop Road",
+        "latitude": 17.4065,
+        "longitude": 78.4772,
+        "distance": 2.56
+      },
+      {
+        "id": 2,
+        "name": "Green Valley High",
+        "address": "789 Greenway",
+        "latitude": 17.4103,
+        "longitude": 78.4811,
+        "distance": 2.97
+      }
+    ]
+  }
+}

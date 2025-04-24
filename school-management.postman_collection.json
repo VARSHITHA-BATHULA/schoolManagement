@@ -1,0 +1,139 @@
+{
+  "info": {
+    "name": "School Management API",
+    "_postman_id": "a1b2c3d4-e5f6-7890-1234-56789abcdef0",
+    "description": "Postman collection for School Management APIs with validation and error handling",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Add School",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"Sunrise Public School\", \"address\": \"456 Hilltop Road\", \"latitude\": 17.4065, \"longitude\": 78.4772}"
+        },
+        "url": {
+          "raw": "https://schoolmanagement-1-p7cz.onrender.com/api/addSchool",
+          "protocol": "https",
+          "host": ["schoolmanagement-1-p7cz", "onrender", "com"],
+          "path": ["api", "addSchool"]
+        }
+      }
+    },
+    {
+      "name": "Add School (Missing Fields)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"Sunrise Public School\", \"latitude\": 17.4065, \"longitude\": 78.4772}"
+        },
+        "url": {
+          "raw": "https://schoolmanagement-1-p7cz.onrender.com/api/addSchool",
+          "protocol": "https",
+          "host": ["schoolmanagement-1-p7cz", "onrender", "com"],
+          "path": ["api", "addSchool"]
+        }
+      }
+    },
+    {
+      "name": "Add School (Invalid Latitude)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"Sunrise Public School\", \"address\": \"456 Hilltop Road\", \"latitude\": 200.0, \"longitude\": 78.4772}"
+        },
+        "url": {
+          "raw": "https://schoolmanagement-1-p7cz.onrender.com/api/addSchool",
+          "protocol": "https",
+          "host": ["schoolmanagement-1-p7cz", "onrender", "com"],
+          "path": ["api", "addSchool"]
+        }
+      }
+    },
+    {
+      "name": "List Schools",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://schoolmanagement-1-p7cz.onrender.com/api/listSchools?latitude=17.385044&longitude=78.486671",
+          "protocol": "https",
+          "host": ["schoolmanagement-1-p7cz", "onrender", "com"],
+          "path": ["api", "listSchools"],
+          "query": [
+            { "key": "latitude", "value": "17.385044" },
+            { "key": "longitude", "value": "78.486671" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "List Schools (Missing Latitude)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://schoolmanagement-1-p7cz.onrender.com/api/listSchools?longitude=78.486671",
+          "protocol": "https",
+          "host": ["schoolmanagement-1-p7cz", "onrender", "com"],
+          "path": ["api", "listSchools"],
+          "query": [
+            { "key": "longitude", "value": "78.486671" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "List Schools (Invalid Latitude/Longitude)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://schoolmanagement-1-p7cz.onrender.com/api/listSchools?latitude=200.0&longitude=300.0",
+          "protocol": "https",
+          "host": ["schoolmanagement-1-p7cz", "onrender", "com"],
+          "path": ["api", "listSchools"],
+          "query": [
+            { "key": "latitude", "value": "200.0" },
+            { "key": "longitude", "value": "300.0" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "List Schools (No Schools Found)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://schoolmanagement-1-p7cz.onrender.com/api/listSchools?latitude=0.0&longitude=0.0",
+          "protocol": "https",
+          "host": ["schoolmanagement-1-p7cz", "onrender", "com"],
+          "path": ["api", "listSchools"],
+          "query": [
+            { "key": "latitude", "value": "0.0" },
+            { "key": "longitude", "value": "0.0" }
+          ]
+        }
+      }
+    }
+  ]
+}
